@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    #outer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #inner{
+      max-width: 300px;
+      width: auto;
+      background-color: hsl(216, 50%, 16%);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px 20px hsl(215, 53%, 13%);
+    }
+    #eqb {
+      border-radius: 10px;
+      width: auto;
+      max-width: 300px;
+    }
+    #eqb:hover{
+      cursor: pointer;
+    }
+    #overlay{
+      background-color: rgba(0, 255, 247, 0.5);
+      border-radius: 10px;
+      position: absolute;
+      top:0;
+      bottom: 0; 
+      left:0; 
+      right: 0;
+      z-index: 1;
+      visibility: hidden;
+    }
+    body{
+      background-color:hsl(217, 54%, 11%) ;
+      font-family:'Outfit', sans-serif;
+      margin: 0;
+    }
+    #inner h2{
+      color: white;
+    }
+    #inner h2:hover{
+      color: hsl(178, 100%, 50%);
+      cursor: pointer;
+    }
+    p{
+      font-size: 18px;
+      color: hsl(215, 51%, 70%);
+    }
+    hr{
+      color: hsl(215, 32%, 27%);
+      opacity: 0.1;
+    }
+    #copyright{
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+    #copyright img{
+      height: 2.5rem;
+      border: 1px solid white;
+      border-radius: 100%;
+    }
+    #copyright span{
+      color: white;
+    }
+    #copyright span:hover{
+      color:hsl(178, 100%, 50%);
+      cursor:pointer;
+    }
+    #eth{
+      float: left; 
+      color: hsl(178, 100%, 50%);
+      display: flex; 
+      align-items: center;
+    }
+    #days-left{
+      float: right; 
+      color: hsl(215, 51%, 70%);
+      display: flex; 
+      align-items: center;
+    }
+    #view-icon{
+      position: absolute; 
+      top: 50%; 
+      left: 50%; 
+      transform: translate(-50%, -50%); 
+      visibility: hidden;
+      z-index: 2;
+    }
+    </style>
+    <script>
+      function onHover(){
+        document.getElementById("view-icon").style.visibility = "visible";
+        document.getElementById("overlay").style.visibility = "visible";
+        document.getElementById("view-icon").style.cursor = "pointer";
+        document.getElementById("overlay").style.cursor = "pointer";
+      }
+      function undo(){
+        document.getElementById("view-icon").style.visibility = "hidden";
+        document.getElementById("overlay").style.visibility = "hidden";
+        document.getElementById("view-icon").style.cursor = "default";
+        document.getElementById("overlay").style.cursor = "default";
+      }
+      </script>
+  
+  <title>Frontend Mentor | NFT preview card component</title>
+</head>
+<body>
+  <div id="outer">
+    <div id="inner">
+      <div style="position: relative">
+      <img onmouseenter=onHover() id="view-icon" alt="view icon" src="./images/icon-view.svg" />
+      <img alt="equilibrium image" onmouseenter=onHover() onmouseleave=undo() id="eqb" src="./images/image-equilibrium.jpg" />
+      <div onmouseenter=onHover() onmouseleave=undo() id="overlay"></div>
+      </div>
+      <h2>Equilibrium #3429</h2>
+      <p>Our Equilibrium collection promotes balance and calm.</p>
+      <div>
+        <div id="eth">
+          <img style="margin-right: 10px;" src="./images/icon-ethereum.svg" alt="icon-ethereum"></img>
+          0.041 ETH
+        </div>
+        <div id="days-left">
+          <img style="margin-right: 10px;"  src="./images/icon-clock.svg" alt="icon-clock"/>
+          3 days left
+        </div>
+      </div>
+      <br/><br/>
+      <hr/>
+      <div id="copyright">
+        <img src="./images/image-avatar.png" alt="image-avatar" />
+        <p style="margin-left: 20px;">Creation of <span>Jules Wyvern</span></p>
+        </div>
+      </div>
+    </div>  
+</body>
+</html>
